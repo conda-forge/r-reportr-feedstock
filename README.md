@@ -1,13 +1,17 @@
+<!--
+# -*- mode: jinja -*-
+-->
+
 About r-reportr
 ===============
 
-Home: https://cran.r-project.org/package=reportr
+Home: https://github.com/jonclayden/reportr
 
 Package license: GPL-2
 
 Feedstock license: BSD 3-Clause
 
-Summary: Provides a system for reporting messages, which provides certain useful features over the standard R system, such as the incorporation of output consolidation, message filtering, expression substitution, automatic generation of stack traces for debugging, and conditional reporting based on the current "output level".
+Summary: Provides a system for reporting messages, which provides certain useful features over the standard R system, such as the incorporation of output consolidation, message filtering, assertions, expression substitution, automatic generation of stack traces for debugging, and conditional reporting based on the current "output level".
 
 
 
@@ -48,6 +52,8 @@ conda search r-reportr --channel conda-forge
 
 About conda-forge
 =================
+
+[![Powered by NumFOCUS](https://img.shields.io/badge/powered%20by-NumFOCUS-orange.svg?style=flat&colorA=E1523D&colorB=007D8A)](http://numfocus.org)
 
 conda-forge is a community-led conda channel of installable packages.
 In order to provide high-quality builds, the process has been automated into the
@@ -103,3 +109,12 @@ In order to produce a uniquely identifiable distribution:
  * If the version of a package **is** being increased, please remember to return
    the [``build/number``](https://conda.io/docs/user-guide/tasks/build-packages/define-metadata.html#build-number-and-string)
    back to 0.
+
+Feedstock Maintainers
+=====================
+
+* [@ArneKr](https://github.com/ArneKr/)
+* [@FrodePedersen](https://github.com/FrodePedersen/)
+* [@MathiasHaudgaard](https://github.com/MathiasHaudgaard/)
+* [@conda-forge/r](https://github.com/conda-forge/r/)
+

@@ -1,5 +1,4 @@
-{% set version = '1.2.2' %}
-
+{% set version = '1.3.0' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -8,50 +7,66 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: reportr_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/reportr_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/reportr/reportr_{{ version }}.tar.gz
-
-  sha256: a58895ea810a2acec1357e8aff04dc6f177e9a7cc96e5182bf4a91c9888784ba
+    - {{ cran_mirror }}/src/contrib/reportr_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/reportr/reportr_{{ version }}.tar.gz
+  sha256: fc5a5684e974784bc80cb692f44bd9d574293e1f5f6751d910aeae8d3bbdd67f
 
 build:
+  merge_build_host: True  # [win]
+  number: 0
   noarch: generic
-  number: 2001
-
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
+    - {{posix}}zip               # [win]
+  host:
     - r-base
     - r-ore
-
   run:
     - r-base
     - r-ore
 
 test:
   commands:
-    - $R -e "library('reportr')"  # [not win]
+    - $R -e "library('reportr')"           # [not win]
     - "\"%R%\" -e \"library('reportr')\""  # [win]
 
 about:
-  home: https://cran.r-project.org/package=reportr
+  home: https://github.com/jonclayden/reportr
   license: GPL-2
   summary: Provides a system for reporting messages, which provides certain useful features over
     the standard R system, such as the incorporation of output consolidation, message
-    filtering, expression substitution, automatic generation of stack traces for debugging,
-    and conditional reporting based on the current "output level".
+    filtering, assertions, expression substitution, automatic generation of stack traces
+    for debugging, and conditional reporting based on the current "output level".
   license_family: GPL2
+  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
+
 extra:
-   recipe-maintainers:
-    - dpryan79
+  recipe-maintainers:
+    - conda-forge/r
     - MathiasHaudgaard
     - FrodePedersen
     - ArneKr
-    - johanneskoester
-    - bgruening
-    - daler
-    - jdblischak
+
+# Package: reportr
+# Version: 1.3.0
+# Date: 2018-10-26
+# Title: A General Message and Error Reporting System
+# Author: Jon Clayden
+# Maintainer: Jon Clayden <code@clayden.org>
+# Imports: ore
+# Suggests: testthat (>= 0.11.0)
+# Description: Provides a system for reporting messages, which provides certain useful features over the standard R system, such as the incorporation of output consolidation, message filtering, assertions, expression substitution, automatic generation of stack traces for debugging, and conditional reporting based on the current "output level".
+# Encoding: UTF-8
+# License: GPL-2
+# URL: https://github.com/jonclayden/reportr
+# BugReports: https://github.com/jonclayden/reportr/issues
+# RoxygenNote: 6.1.0
+# NeedsCompilation: no
+# Packaged: 2018-10-26 14:07:08 UTC; jon
+# Repository: CRAN
+# Date/Publication: 2018-10-26 15:20:03 UTC
