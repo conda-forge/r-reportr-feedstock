@@ -5,7 +5,7 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-reportr-feeds
 
 Home: https://github.com/jonclayden/reportr
 
-Package license: GPL-2
+Package license: GPL-2.0-only
 
 Summary: Provides a system for reporting messages, which provides certain useful features over the standard R system, such as the incorporation of output consolidation, message filtering, assertions, expression substitution, automatic generation of stack traces for debugging, and conditional reporting based on the current "output level".
 
