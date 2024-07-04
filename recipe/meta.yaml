@@ -35,13 +35,14 @@ test:
 
 about:
   home: https://github.com/jonclayden/reportr
-  license: GPL-2
+  license: GPL-2.0-only
   summary: Provides a system for reporting messages, which provides certain useful features over
     the standard R system, such as the incorporation of output consolidation, message
     filtering, assertions, expression substitution, automatic generation of stack traces
     for debugging, and conditional reporting based on the current "output level".
   license_family: GPL2
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
+  license_file:
+    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
 
 extra:
   recipe-maintainers:
